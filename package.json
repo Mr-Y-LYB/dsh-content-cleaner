@@ -1,0 +1,68 @@
+{
+  "name": "dsh-content-cleaner",
+  "version": "0.2.0",
+  "description": "Session and cache cleaner for the dsh-go phone app: a native panel that lists sessions, deletes them safely, and clears two cache directories. On-device only, no network.",
+  "license": "MIT",
+  "author": "dsh-content-cleaner contributors",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-go",
+    "deepseek-harness",
+    "harness",
+    "plugin",
+    "cleaner",
+    "cache",
+    "session",
+    "dshGo"
+  ],
+  "engines": {
+    "node": ">=22.19",
+    "dsh": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "scripts": {
+    "check": "node scripts/selftest.mjs",
+    "scan": "node scripts/privacy-scan.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dshGo": {
+    "v": 1,
+    "title": {
+      "zh": "会话缓存清理",
+      "en": "Clean sessions"
+    },
+    "icon": "storage",
+    "contributes": {
+      "panels": [
+        {
+          "id": "cleaner",
+          "title": {
+            "zh": "会话缓存清理",
+            "en": "Clean sessions"
+          },
+          "icon": "storage",
+          "placement": [
+            "features",
+            "session.tab"
+          ]
+        }
+      ]
+    }
+  }
+}

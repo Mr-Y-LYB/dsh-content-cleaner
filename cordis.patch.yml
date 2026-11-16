@@ -1,0 +1,6 @@
+# 这条补丁的作用：把本插件挂进被选中的 profile（本机是 web），
+# 也就是执行 `dsh plugin --profile web add <目录>` 时装上的那一项。
+# id 与 name 都必须等于 package.json 里的 name。
+- insert:
+    - id: dsh-content-cleaner
+      name: dsh-content-cleaner
